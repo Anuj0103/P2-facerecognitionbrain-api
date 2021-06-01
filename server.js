@@ -8,13 +8,14 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 //hello
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const db = knex({
   client: 'pg',
   connection: {
     connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    ssl:  {
+    rejectUnauthorized: false
+  }
   },
 });
 
@@ -48,7 +49,8 @@ app.post('/imageUrl', (req, res) => {
 });
 
 
-const PORT=process.env.PORT
+const PORT = process.env.PORT;
+
 app.listen(PORT||3050, () => {
   console.log(`app is running on port ${PORT}`);
 })
