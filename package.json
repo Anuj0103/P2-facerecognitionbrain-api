@@ -9,13 +9,17 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "engines": {
+    "node": "14.17.0",
+    "npm": "7.15.0"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "clarifai": "^2.9.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.95.6",
-    "node-modules": "^1.0.1",
+    "node-modules": "^0.0.1",
     "nodemon": "^2.0.7",
     "pg": "^8.6.0"
   }
