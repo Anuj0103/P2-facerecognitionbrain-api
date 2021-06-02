@@ -1,8 +1,6 @@
 const express=require('express');
 const bcrypt=require('bcrypt-nodejs');
-const knex = require('knex')
-const cors = require('cors');
-
+const knex=require('knex')
 const register=require('./controllers/register')
 const signin=require('./controllers/signin')
 const profile=require('./controllers/profile')
@@ -10,19 +8,21 @@ const image=require('./controllers/image')
 const db=knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
-    user: 'postgres',
-    password: 'admin',
-    database: 'smart-brain',
-  },
+    host : '127.0.0.1',
+    user : 'postgres',
+    password : 'admin',
+    database : 'smart-brain'
+  }
 });
 
 
 
 const app=express()
-
+const cors=require('cors');
 app.use(express.json());
 app.use(cors())
+
+
 
 app.get('/',(req,res)=>{
 	res.send(db.select('*').from('users'));
